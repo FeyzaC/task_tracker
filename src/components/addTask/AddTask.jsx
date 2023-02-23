@@ -9,14 +9,14 @@ const AddTask = ({ getTask }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(newTask);
     const newTask = { task, date };
     addNewTask(newTask);
     setTask("");
     setDate("");
   };
+
   const addNewTask = async (newTask) => {
-    const url = "https://63f7293ce40e087c9588880a.mockapi.io/api/tasks";
+    const url = "https://63f72cd8833c7c9c607e1e1f.mockapi.io/api/tasks";
     try {
       await axios.post(url, newTask);
     } catch (error) {
