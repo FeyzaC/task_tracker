@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import AddTask from "../components/addTask/AddTask";
 import TaskList from "../components/taskList/TaskList";
 
@@ -26,16 +27,19 @@ const Home = () => {
 
   return (
     <div className="mt-4 d-flex justify-content-center flex-column">
-      <button
-        onClick={() => {
-          toggle();
-        }}
-      >
-        {text}
-      </button>
-      {isOpen && <AddTask getTask={getTask} />}
+      <div className="text-center">
+        <Button
+          variant="success w-75 "
+          onClick={() => {
+            toggle();
+          }}
+        >
+          {text}
+        </Button>
+      </div>
 
-      <TaskList />
+      {isOpen && <AddTask getTask={getTask} />}
+      <TaskList task={task} getTask={getTask} />
     </div>
   );
 };

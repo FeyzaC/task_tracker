@@ -48,7 +48,7 @@ const AddTask = ({ getTask }) => {
         </Form.Group>
 
         <div className="text-center">
-          <Button variant="primary w-50" type="submit">
+          <Button variant="primary w-75" type="submit">
             SAVE
           </Button>
         </div>
