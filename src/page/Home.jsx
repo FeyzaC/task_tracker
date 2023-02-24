@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
 import AddTask from "../components/addTask/AddTask";
 import TaskList from "../components/taskList/TaskList";
 
@@ -8,7 +7,7 @@ const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [text, setText] = useState("Show Task Bar");
   const [task, setTask] = useState([]);
-  const url = "https://63f7293ce40e087c9588880a.mockapi.io/api/tasks";
+  const url = "https://63f87f376978b1f9105aadd4.mockapi.io/api/tasks";
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -27,16 +26,16 @@ const Home = () => {
 
   return (
     <div className="mt-4 d-flex justify-content-center flex-column">
-      <Button
-        variant="danger"
+      <button
         onClick={() => {
           toggle();
         }}
       >
         {text}
-      </Button>
-      {isOpen && <AddTask getTask={getTask} />}
-      <TaskList task={task} getTask={getTask} />
+      </button>
+      {isOpen && <AddTask />}
+
+      <TaskList />
     </div>
   );
 };

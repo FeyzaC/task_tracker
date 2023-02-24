@@ -1,50 +1,19 @@
-import axios from "axios";
-import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
-const AddTask = ({ getTask }) => {
-  const [task, setTask] = useState("");
-  const [date, setDate] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newTask = { task, date };
-    addNewTask(newTask);
-    setTask("");
-    setDate("");
-  };
-
-  const addNewTask = async (newTask) => {
-    const url = "https://63f72cd8833c7c9c607e1e1f.mockapi.io/api/tasks";
-    try {
-      await axios.post(url, newTask);
-    } catch (error) {
-      console.log(error);
-    }
-    getTask();
-  };
-
+const AddTask = () => {
+  return;
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form>
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Task</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter Task"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-          />
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Date</Form.Label>
-          <Form.Control
-            type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" />
         </Form.Group>
 
         <div className="text-center">
